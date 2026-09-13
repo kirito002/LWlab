@@ -2,6 +2,26 @@
 
 > 断点续作日志。每次改动追加记录：做了什么、还差什么。
 
+## 2026-09-13（新照片 + 图片体检脚本）
+
+- 用户新增 3 张成员照：董豹（bao-dong.png→jpg 74KB）、王创（chuang-wang.jpg 474KB）、韩娟（juan-han.jpg 88KB）。
+  至此博士 10 人照片齐全；硕士组还有 6 人（张玙璠/贾诗瑗/李彤彤/李璟婕/陈由洲/郑鑫浩）无照片。
+- 新增可复用脚本 **tools/check_images.py**：扫描 photos/，超标（横图>1920/竖图>1200）或 PNG 自动压缩
+  并把原图移入 originals/，logo 跳过，幂等可重复运行；用法见脚本头注释与 originals/README.md。
+- ⚠️ 脚本首版有 bug（同名 JPG 压缩后被误移到 originals/，photos 丢失 7 张）：6 张从 git 恢复、
+  1 张从 originals 恢复，已全部复原；脚本已重写为"内存压缩→移原图→写回"的正确顺序。
+  本轮顺带把 git 里高度超 1200px 的 5 张（陈翀/周世雄/徐晨夏/王紫璇/王梓焱）补压到规范尺寸。
+
+## 2026-09-13（部署上线）
+
+- 代码已推送至 GitHub：**https://github.com/kirito002/LWlab**（main 分支，公开仓库）。
+- 已通过 GitHub API 开启 Pages（main / 根目录），线上地址：
+  **https://kirito002.github.io/LWlab/** —— 首页、论文页、CSS/JS、照片、图标全部 200 验证通过。
+- 以后更新流程：改文件 → `git add -A && git commit -m "..." && git push` → 约 1 分钟后线上生效。
+- 国内加速建议（未购买域名、免费）：首选腾讯 **EdgeOne Pages**（连接同一 GitHub 仓库自动部署，
+  免备案、国内节点实测远快于 GitHub Pages / Cloudflare 免费节点）；备选 Cloudflare Pages；
+  Vercel 默认域名在国内被墙，不推荐。
+
 ## 2026-09-13（微调三）
 
 - 两位导师"实验室位置"统一为 **生命科学学院 4017**（移除泰康表述；"加入我们"仍为 4013、4017）。

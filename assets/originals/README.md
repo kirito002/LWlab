@@ -4,18 +4,16 @@
 
 ## 当前文件
 
-| 原始文件 | 大小 | 网页使用的压缩版 |
-|---|---|---|
-| `合照.jpg` | 6.7 MB（5328×4000） | `photos/group-1.jpg`（1920px / 85%） |
-| `合照2.jpg` | 15.9 MB（6000×4000） | `photos/group-2.jpg`（1920px / 85%） |
-| `ziyan-wang.png` | 23 MB PNG（3579×4130） | `photos/ziyan-wang.jpg`（1200px / 88%） |
-| `xuchen-xia.jpg` | 3.0 MB（3072×4096） | `photos/xuchen-xia.jpg`（1200px / 85%） |
-| `chong-chen.jpg` | 0.6 MB（1279×1617） | `photos/chong-chen.jpg`（1200px / 85%） |
+归档的原始图（网页压缩版见 `../photos/`）：`合照.jpg`、`合照2.jpg`、`ziyan-wang.png`、
+`xuchen-xia.jpg`、`chong-chen.jpg`、`bao-dong.png` 及少量压缩过程中的中间版本（`*_1.jpg`）。
 
-## 使用流程
+## 自动处理
 
-1. 新的大图放进本文件夹；
-2. 用 PIL/ImageMagick 压缩到长边 ≤1920px（合影）/1200px（人像）、质量 85%，输出到 `assets/photos/`；
-3. 如替换了网站已有图片，记得把 `index.html` 里对应的 `?v=N` 版本号加一。
+直接把新图丢进 `assets/photos/`（文件名按 SPEC §4.2），然后运行：
+
+    python tools/check_images.py        # 加 --dry-run 只预览
+
+脚本会自动：尺寸超标（横图>1920px / 竖图>1200px）或 PNG 的 → 压缩回 `photos/`（质量 85，
+PNG 平铺白底转 JPG），原图移入本文件夹；文件名含 "logo" 的跳过；可重复运行。
 
 原始文件请保留：它是未来重新压缩、印刷或出具高清版的源头。
