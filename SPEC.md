@@ -41,7 +41,7 @@
 | 1 | 首页 Home | Hero 区**左右分栏**：左侧 = LW 徽标粒子动画 + 标题/简介；右侧 = "最新发表"论文展示卡（图 + 题目 + 作者/期刊，来自 `assets/photos/publication/paper-info.txt`；多篇时自动轮播，卡下注明添加方法） |
 | 2 | 关于 About | 实验室简介 200–300 字，学术口吻；末尾附**合影轮播**（§4.0）；未知细节用`【待补充】`标记，不要编造具体事实（如成立年份、经费） |
 | 3 | 研究 Research | 3–4 个研究方向卡片；**2026-09-11 已替换为真实方向**（病毒进化与免疫应答 / 病毒与宿主相互作用 / 病原诊断与抗体药物 / 疫苗设计与基因治疗），依据两位导师的研究领域综述；卡片标题配 Tabler 线性图标（`assets/icons/`，MIT，已本地化改色，见该目录 README） |
-| 4 | 团队 People | 见 §4：导师在前，学生按 **博士 → 博士后 → 硕士** 分组（每组标身份不标年级），共 21 人，**不得自行增删** |
+| 4 | 团队 People | 见 §4：导师在前，其余按 **博士 → 科研工作人员(Staff) → 硕士** 分组（每组标身份不标年级），共 21 人，**不得自行增删** |
 | 5 | 新闻 News | 区块保留；**2026-09-11 已录入**：网站上线（2026-09）、Journal of Infection 论文（2026-08，doi:10.1016/j.jinf.2026.106827）；后续新闻按此格式追加 |
 | 6 | 论文 Publication | **独立整页 `publication.html`**（2026-09-12 新增）：导师既往发表论文（源自 `assets/publication-old.txt`），按年份倒序，**去重合并**（共同署名论文只列一次，共 43 篇，含 2026 最新发表）；**实验室成员姓名（Wang Q / Liu L）与期刊名加粗**；* 通讯作者、# 共同第一作者 |
 | 7 | 加入我们 Join Us | 欢迎语 + 联系方式；**已填**：邮箱 llh3411@whu.edu.cn，**实验室位置：武汉大学生命科学学院 4013、4017 实验室** |
@@ -75,10 +75,10 @@
 - **替换照片时**：把原始大图放入 `assets/originals/`，压缩后覆盖 `photos/` 对应文件，并把 HTML 里 `?v=N` 版本号加一。
 - 原始大图自 2026-09-12 起统一放 `assets/originals/`（详见其 README）；网页只引用 `photos/` 内压缩版。
 
-### 4.2 学生 Students（19 人，按 博士 → 博士后 → 硕士 分组展示）
+### 4.2 成员 Students & Staff（19 人，按 博士 → 科研工作人员 → 硕士 分组展示）
 
-> **排序与标签（2026-09-12 实验室名单确认）**：按 **博士研究生(PhD) → 博士后(Postdoc) → 硕士研究生(Master)**
-> 分组；只标身份不标年级（研一/研二/研三→Master，博一/博二/博三→PhD），卡片副标题为 `拼音 · PhD/Postdoc/Master`。
+> **排序与标签（2026-09-12 名单确认，2026-09-13 修订）**：按 **博士研究生(PhD) → 科研工作人员(Staff，含博士后) → 硕士研究生(Master)**
+> 分组；只标身份不标年级（研一/研二/研三→Master，博一/博二/博三→PhD），卡片副标题为 `拼音 · PhD/Staff/Master`。
 > 无实习生。罗红炜不在实验室提供的名单中，2026-09-13 按实验室要求从团队中移除。
 
 | 姓名 | 拼音（展示用） | 角色 | 照片文件名 |
@@ -93,7 +93,7 @@
 | 徐晨夏 | Chenxia Xu | 博士 PhD | `assets/photos/xuchen-xia.jpg` |
 | 石兰芳 | Lanfang Shi | 博士 PhD | `assets/photos/shilan-fang.jpg`（750×750 方图，3:4 容器会左右裁切） |
 | 韩娟 | Juan Han | 博士 PhD | `assets/photos/juan-han.jpg` |
-| 周世雄 | Shixiong Zhou | 博士后 Postdoc | `assets/photos/shixiong-zhou.jpg` |
+| 周世雄 | Shixiong Zhou | 科研工作人员 Staff | `assets/photos/shixiong-zhou.jpg` |
 | 张玙璠 | Yufan Zhang | 硕士 Master | `assets/photos/yufan-zhang.jpg` |
 | 贾诗瑗 | Shiyuan Jia | 硕士 Master | `assets/photos/shiyuan-jia.jpg` |
 | 王梓焱 | Ziyan Wang | 硕士 Master | `assets/photos/ziyan-wang.jpg`（由用户提供的 `ziyan-wang.png` 压缩转制，1200px/88%） |

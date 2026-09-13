@@ -2,6 +2,13 @@
 
 > 断点续作日志。每次改动追加记录：做了什么、还差什么。
 
+## 2026-09-13（Staff 分组 + 第三批照片）
+
+- "博士后 Postdocs" 组更名为 **"科研工作人员 Staff"**（用户确认博士后计入实验室工作人员），
+  周世雄副标题 `Shixiong Zhou · Postdoc` → `· Staff`；SPEC §3/§4.2 同步。
+- 新照片：李彤彤、陈由洲、张玙璠到齐（张的照片文件名用户写为 yupan-zhang.jpg，
+  已更正为 yufan-zhang.jpg 与 HTML/SPEC 一致）。硕士组还差 3 人：贾诗瑗、李璟婕、郑鑫浩。
+
 ## 2026-09-13（新照片 + 图片体检脚本）
 
 - 用户新增 3 张成员照：董豹（bao-dong.png→jpg 74KB）、王创（chuang-wang.jpg 474KB）、韩娟（juan-han.jpg 88KB）。
