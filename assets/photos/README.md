@@ -1,10 +1,5 @@
-# 成员照片目录
+# 网站照片
 
-把每位成员的照片按 `SPEC.md` §4 规定的文件名放入本目录即可，例如：
+当前照片路径与成员对应关系见根目录 website-content.json 的 faculty / people / group_photos。
 
-- `lihong-liu.jpg`（刘立鸿）
-- `qian-wang.jpg`（王茜）
-- `yufan-zhang.jpg`（张玙璠）
-
-要求：正方形或 3:4 裁剪、正面照、单个文件建议 < 500KB。
-照片放入后网页会自动显示，无需修改任何代码。
+将新照片放到本目录，运行 python tools/check_images.py 压缩超尺寸图片并归档原图，再运行 python tools/sync_content.py 更新网页和缓存版本。小图保持原样；缺失照片使用姓氏占位。

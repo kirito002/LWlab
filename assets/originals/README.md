@@ -9,7 +9,7 @@
 
 ## 自动处理
 
-直接把新图丢进 `assets/photos/`（文件名按 SPEC §4.2），然后运行：
+直接把新图丢进 `assets/photos/`（文件名按 website-content.json 的 people 字段），然后运行：
 
     python tools/check_images.py        # 加 --dry-run 只预览
 

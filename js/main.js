@@ -99,8 +99,8 @@
     var hero = document.getElementById('home');
     var canvas = document.getElementById('heroCanvas');
     if (!hero || !canvas || !canvas.getContext) return;
-    // 用户偏好减少动效时不启用
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var lettering = document.getElementById('logoLettering');
 
     var ctx = canvas.getContext('2d');
 
@@ -140,6 +140,12 @@
       var h = logo.height * scale;
       var ox = (W - w) / 2;
       var oy = H * 0.40 - h / 2;
+      if (lettering) {
+        lettering.style.left = ox + 'px';
+        lettering.style.top = oy + 'px';
+        lettering.style.width = w + 'px';
+        lettering.style.fontSize = Math.max(21, Math.min(32, w / 8.5)) + 'px';
+      }
 
       // 降采样读取像素：非白色的像素生成一个粒子
       var sw = Math.min(200, Math.max(40, Math.round(w)));
@@ -161,6 +167,10 @@
 
       for (var y = 0; y < sh; y += step) {
         for (var x = 0; x < sw; x += step) {
+          // 仅移除源徽标上方两行文字，保留原有图形、配色和粒子物理。
+          var sourceX = x / sw * logo.width;
+          var sourceY = y / sh * logo.height;
+          if (sourceY < 32 || (sourceY < 58 && sourceX > 74 && sourceX < 128)) continue;
           var i = (y * sw + x) * 4;
           var r = data[i], g = data[i + 1], b = data[i + 2];
           if (0.299 * r + 0.587 * g + 0.114 * b > 232) continue; // 白底跳过
@@ -176,16 +186,22 @@
           });
         }
       }
+      if (reducedMotion) frame();
     }
 
     function frame() {
-      raf = requestAnimationFrame(frame);
+      if (!reducedMotion) raf = requestAnimationFrame(frame);
       if (!visible || document.hidden) return;
       t += 0.016;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, W, H);
       for (var i = 0; i < particles.length; i++) {
         var p = particles[i];
+        if (reducedMotion) {
+          ctx.fillStyle = p.c;
+          ctx.fillRect(p.hx, p.hy, p.s, p.s);
+          continue;
+        }
 
         // 鼠标斥力：靠近则被推开
         var dx = p.x - mouse.x;
@@ -234,11 +250,12 @@
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
         visible = entries[0].isIntersecting;
+        if (reducedMotion && visible) frame();
       }, { threshold: 0.02 }).observe(hero);
     }
 
     resize();
-    if (!raf) raf = requestAnimationFrame(frame);
+    if (!raf && !reducedMotion) raf = requestAnimationFrame(frame);
   })();
 
   /* ================= 首页"最新论文"展示卡 ================= */
@@ -259,6 +276,52 @@
       idx = (idx + 1) % slides.length;
       slides[idx].classList.add('active');
     }, 7000);
+  })();
+
+  /* ================= 导师柔光与清晰的徽标文字 ================= */
+  (function () {
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var lettering = document.getElementById('logoLettering');
+    if (!lettering || reduced) return;
+    var letters = Array.prototype.slice.call(lettering.querySelectorAll('.logo-letter'));
+    var colors = ['#293d73', '#654282', '#a33e71', '#326b60', '#35678b'];
+    var inView = true;
+    var lastWave = 0;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        inView = entries[0].isIntersecting;
+      }).observe(lettering);
+    }
+    function recolor(letter) {
+      letter.style.color = colors[Math.floor(Math.random() * colors.length)];
+    }
+    letters.forEach(function (letter, index) {
+      letter.addEventListener('pointerenter', function () {
+        recolor(letter);
+        letter.getAnimations().forEach(function (animation) { animation.cancel(); });
+        letter.animate([
+          { transform: 'translate(0,0) rotate(0)' },
+          { transform: 'translate(-1px,-3px) rotate(-6deg)', offset: 0.25 },
+          { transform: 'translate(1px,1px) rotate(5deg)', offset: 0.55 },
+          { transform: 'translate(0,0) rotate(0)' }
+        ], { duration: 440, easing: 'ease-out' });
+        if (performance.now() - lastWave < 350) return;
+        lastWave = performance.now();
+        letters.forEach(function (neighbor, i) {
+          if (i === index) return;
+          neighbor.getAnimations().forEach(function (animation) { animation.cancel(); });
+          neighbor.animate([
+            { transform: 'translateY(0)' },
+            { transform: 'translateY(-2px)', offset: 0.4 },
+            { transform: 'translateY(0)' }
+          ], { duration: 650, delay: Math.abs(i - index) * 28, easing: 'ease-in-out' });
+        });
+      });
+    });
+    setInterval(function () {
+      if (document.hidden || !inView) return;
+      recolor(letters[Math.floor(Math.random() * letters.length)]);
+    }, 850);
   })();
 
 })();

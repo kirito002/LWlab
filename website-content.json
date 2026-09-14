@@ -1,0 +1,403 @@
+{
+  "site": {
+    "name": "LW Lab",
+    "subtitle": "Limitless Wonder · 无限奇迹实验室",
+    "intro": "依托武汉大学生命科学学院与泰康生命医学中心，致力于病毒感染与免疫应答相关研究。",
+    "logo_text": "Limitless Wonder Lab",
+    "footer": "© 2026 LW Lab · 无限奇迹实验室 · 武汉大学 & 泰康生命医学中心"
+  },
+  "about": [
+    "无限奇迹实验室（Limitless Wonder Laboratory，简称 LW Lab）依托武汉大学生命科学学院与泰康生命医学中心，由王茜教授与刘立鸿教授共同领导。实验室围绕病毒感染与免疫应答开展研究，秉持\"以好奇驱动探索、以严谨对待研究\"的理念，鼓励成员在扎实的理论基础之上开展有原创性的工作。",
+    "实验室现由两位导师、一位科研工作人员和十八名硕博研究生组成，研究方向涵盖病毒进化与免疫、病毒与宿主相互作用、病原诊断、抗体与药物筛选、疫苗设计与基因治疗等（详见\"研究\"部分）。我们重视系统训练与开放讨论，组内定期组织文献研读与学术交流，支持成员参与学术会议并发表高水平成果。"
+  ],
+  "group_photos": [
+    {
+      "image": "assets/photos/group-1.jpg",
+      "alt": "实验室合影一"
+    },
+    {
+      "image": "assets/photos/group-2.jpg",
+      "alt": "实验室合影二"
+    }
+  ],
+  "latest_publications": [
+    {
+      "image": "assets/photos/publication/JOI.png",
+      "alt": "论文图形摘要：大流行后人群血清对多种冠状病毒展现出增强的中和抗体应答",
+      "title": "Cross-neutralizing antibody responses to diverse coronaviruses in the human population",
+      "meta": "Zhou et al. · **Journal of Infection**, 2026"
+    }
+  ],
+  "research": [
+    {
+      "title": "病毒进化与免疫应答",
+      "icon": "assets/icons/virus.svg",
+      "text": "研究病毒变异与传播的分子基础、免疫压力驱动下的抗原变异机制，开展病毒进化路径预测与群体免疫监测，揭示病毒长期演化与公共健康风险之间的内在联系。"
+    },
+    {
+      "title": "病毒与宿主相互作用",
+      "icon": "assets/icons/arrows-exchange.svg",
+      "text": "研究病毒感染与宿主免疫应答的分子机制，解析病毒的免疫逃逸策略，为理解致病机理和发现干预靶点提供依据。"
+    },
+    {
+      "title": "病原诊断与抗体药物",
+      "icon": "assets/icons/microscope.svg",
+      "text": "开发病原诊断方法，开展单克隆抗体分离与抗病毒药物筛选，支撑传染病的精准检测与临床干预。"
+    },
+    {
+      "title": "疫苗设计与基因治疗",
+      "icon": "assets/icons/vaccine.svg",
+      "text": "开展新型疫苗的设计与免疫评估，探索基因治疗等干预策略，面向重要病毒性疾病构建防治新技术。"
+    }
+  ],
+  "faculty": [
+    {
+      "id": "profile-qianwang",
+      "name": "王茜",
+      "english": "Qian Wang",
+      "title": "教授",
+      "theme": "pink",
+      "photo": "assets/photos/qianwang.jpg",
+      "affiliations": [
+        "武汉大学生命科学学院 · 教授",
+        "泰康生命医学中心 · 教授",
+        "高致病性病毒与生物安全全国重点实验室 · 教授",
+        "中国科学院 · 兼职 PI"
+      ],
+      "field": "病毒进化与免疫",
+      "office": "生命科学学院 4017",
+      "email": "qwa20250501@whu.edu.cn",
+      "summary": "研究病毒进化、感染机制与人体体液免疫应答，关注病毒变异与免疫应答之间的关系。",
+      "sections": [
+        {
+          "title": "教育与工作经历",
+          "items": [
+            "2025.05–至今，武汉大学，教授",
+            "2022.04–2025.04，哥伦比亚大学，副研究员、助理教授",
+            "2019.09–2022.03，哈佛大学医学院，博士后",
+            "2013.09–2019.07，清华大学医学院，微生物学博士",
+            "2009.09–2013.07，北京林业大学，生命科学学士"
+          ]
+        },
+        {
+          "title": "代表性荣誉",
+          "items": [
+            "2023，国家自然科学基金优秀青年科学基金项目（海外）",
+            "2023，湖北省百人计划",
+            "2023，中国区“35 岁以下科技创新 35 人”"
+          ]
+        },
+        {
+          "title": "科研项目",
+          "items": [
+            "8 月获国家自然科学基金资助，开展博卡病毒受体鉴定相关研究",
+            "武汉大学人才启动经费"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "profile-liuhong",
+      "name": "刘立鸿",
+      "english": "Lihong Liu",
+      "title": "教授",
+      "theme": "blue",
+      "photo": "assets/photos/lihong-liu.jpg",
+      "affiliations": [
+        "武汉大学生命科学学院 · 教授",
+        "泰康生命医学中心 · 教授",
+        "高致病性病毒与生物安全全国重点实验室 · 教授",
+        "中国科学院武汉病毒研究所 · 兼职 PI"
+      ],
+      "field": "抗病毒与遗传免疫",
+      "office": "生命科学学院 4017",
+      "email": "llh3411@whu.edu.cn",
+      "summary": "研究病毒感染与免疫应答，围绕病原诊断、抗体与药物筛选、疫苗评估及基因治疗开展工作。",
+      "sections": [
+        {
+          "title": "教育与工作经历",
+          "items": [
+            "2024.05–至今，武汉大学，教授",
+            "2020.01–2024.04，哥伦比亚大学，副研究员、助理教授",
+            "2015.08–2019.12，洛克菲勒大学，博士后",
+            "2010.09–2015.01，中国科学院上海巴斯德研究所，微生物学博士"
+          ]
+        },
+        {
+          "title": "代表性荣誉与学术服务",
+          "items": [
+            "2025，首届 Wiley Star Scientist Award",
+            "2025–至今，npj Vaccines 副主编、《中国科学：生命科学》中青年编委"
+          ]
+        },
+        {
+          "title": "科研项目",
+          "items": [
+            "2026–2028，国家自然科学基金重大研究计划培育项目",
+            "2024–2027，国家自然科学基金优秀青年科学基金项目（海外）",
+            "武汉大学、泰康生命医学中心人才项目及全国重点实验室项目"
+          ]
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "title": "科研工作人员 Staff",
+      "role": "博士后 · Postdoc",
+      "members": [
+        {
+          "name": "周世雄",
+          "english": "Shixiong Zhou",
+          "photo": "assets/photos/shixiong-zhou.jpg"
+        }
+      ]
+    },
+    {
+      "title": "博士研究生 PhD Students",
+      "role": "PhD",
+      "members": [
+        {
+          "name": "陈翀",
+          "english": "Chong Chen",
+          "photo": "assets/photos/chong-chen.jpg"
+        },
+        {
+          "name": "朱天昊",
+          "english": "Tianhao Zhu",
+          "photo": "assets/photos/tianhao-zhu.jpg"
+        },
+        {
+          "name": "王创",
+          "english": "Chuang Wang",
+          "photo": "assets/photos/chuang-wang.jpg"
+        },
+        {
+          "name": "董豹",
+          "english": "Bao Dong",
+          "photo": "assets/photos/bao-dong.jpg"
+        },
+        {
+          "name": "代欣",
+          "english": "Xin Dai",
+          "photo": "assets/photos/xin-dai.jpg"
+        },
+        {
+          "name": "张舒艳",
+          "english": "Shuyan Zhang",
+          "photo": "assets/photos/shuyan-zhang.jpg"
+        },
+        {
+          "name": "刘纯海",
+          "english": "Chunhai Liu",
+          "photo": "assets/photos/chunhai-liu.jpg"
+        },
+        {
+          "name": "徐晨夏",
+          "english": "Chenxia Xu",
+          "photo": "assets/photos/xuchen-xia.jpg"
+        },
+        {
+          "name": "石兰芳",
+          "english": "Lanfang Shi",
+          "photo": "assets/photos/shilan-fang.jpg"
+        },
+        {
+          "name": "韩娟",
+          "english": "Juan Han",
+          "photo": "assets/photos/juan-han.jpg"
+        }
+      ]
+    },
+    {
+      "title": "硕士研究生 Master Students",
+      "role": "Master",
+      "members": [
+        {
+          "name": "张玙璠",
+          "english": "Yufan Zhang",
+          "photo": "assets/photos/yufan-zhang.jpg"
+        },
+        {
+          "name": "贾诗瑗",
+          "english": "Shiyuan Jia",
+          "photo": "assets/photos/shiyuan-jia.jpg"
+        },
+        {
+          "name": "王梓焱",
+          "english": "Ziyan Wang",
+          "photo": "assets/photos/ziyan-wang.jpg"
+        },
+        {
+          "name": "王紫璇",
+          "english": "Zixuan Wang",
+          "photo": "assets/photos/zixuan-wang.jpg"
+        },
+        {
+          "name": "李彤彤",
+          "english": "Tongtong Li",
+          "photo": "assets/photos/tongtong-li.jpg"
+        },
+        {
+          "name": "李璟婕",
+          "english": "Jingjie Li",
+          "photo": "assets/photos/jingjie-li.jpg"
+        },
+        {
+          "name": "陈由洲",
+          "english": "Youzhou Chen",
+          "photo": "assets/photos/youzhou-chen.jpg"
+        },
+        {
+          "name": "郑鑫浩",
+          "english": "Xinhao Zheng",
+          "photo": "assets/photos/xinhao-zheng.jpg"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "date": "2026-09",
+      "title": "实验室网站正式上线。",
+      "detail": "网站内容由实验室成员持续维护更新。"
+    },
+    {
+      "date": "2026-08",
+      "title": "实验室论文发表于 Journal of Infection。",
+      "detail": "Zhou S, Liu C, Liu W, Cai K, Lan K, Zhu C, Wang Q, Liu L. Cross-neutralizing antibody responses to diverse coronaviruses in the human population. J Infect 2026;93(3):106827.",
+      "url": "https://doi.org/10.1016/j.jinf.2026.106827",
+      "link_label": "doi: 10.1016/j.jinf.2026.106827"
+    },
+    {
+      "date": "2025-10",
+      "title": "实验室搬入新的实验室。",
+      "detail": ""
+    }
+  ],
+  "join": {
+    "paragraphs": [
+      "我们长期欢迎对研究怀有热情与好奇心的同学加入。如果你希望在扎实的学术训练中开展有原创性的工作，欢迎通过邮件与我们联系，并附上个人简历与简要的研究兴趣介绍。"
+    ],
+    "email": "llh3411@whu.edu.cn",
+    "address": "武汉大学生命科学学院 4013、4017 实验室"
+  },
+  "publication_note": "论文按年份倒序排列，共同署名条目只列一次。加粗为实验室成员姓名与发表期刊（2026 年条目不加粗作者）。作者标记沿用来源记录。",
+  "publications": [
+    {
+      "year": 2026,
+      "entries": [
+        "Zhou S, Liu C, Liu W, Cai K, Lan K, Zhu C, Wang Q, Liu L. Cross-neutralizing antibody responses to diverse coronaviruses in the human population. **Journal of Infection** 2026;93(3):106827. doi: 10.1016/j.jinf.2026.106827."
+      ]
+    },
+    {
+      "year": 2025,
+      "entries": [
+        "**Wang Q**, Guo Y, Casner RG, Yu J, Nair MS, Ho J, Reddem ER, Mellis IA, Wu M, Tzang CC, Hong H, Huang Y, Shapiro L, **Liu L**, Ho DD. Optimizing a human monoclonal antibody for better neutralization of SARS-CoV-2. **Nature Communications** 2025 Jul 4;16(1):6195.",
+        "**Wang Q***, Guo Y*, Mellis IA*, Wu M*, Mohri H, Gherasim C, Valdez R, Purpura LJ, Yin MT, Gordon A, Ho DD. Antibody evasiveness of SARS-CoV-2 subvariants KP.3.1.1 and XEC. **Cell Reports** 2025 Apr 8;44(4):115543. doi: 10.1016/j.celrep.2025.115543.",
+        "**Wang Q***, Mellis IA*, Wu M*, Bowen A*, Gherasim C, Valdez R, Shah JG, Purpura LJ, Yin MT, Gordon A, Guo Y, Ho DD. KP.2-based monovalent mRNA vaccines robustly boost antibody responses to SARS-CoV-2. **The Lancet Infectious Diseases** 2025 Feb 4:S1473-3099(25)00058-1."
+      ]
+    },
+    {
+      "year": 2024,
+      "entries": [
+        "**Wang Q***, Guo Y*, Ho J, Ho DD. Activity of Research-Grade Pemivibart against Recent SARS-CoV-2 JN.1 Sublineages. **New England Journal of Medicine** 2024 Nov 14;391(19):1863-1864.",
+        "**Wang Q***, Guo Y*, Schwanz LT*, Mellis IA*, Sun Y, Qu Y, Urtecho G, Valdez R, Stoneman E, Gordon A, Wang HH, Ho DD, **Liu L**. SARS-CoV-2 omicron BA.2.87.1 exhibits higher susceptibility to serum neutralization than EG.5.1 and JN.1. **Emerging Microbes & Infections** 2024 Dec;13(1):2359004.",
+        "**Wang Q***, Mellis IA*, Ho J*, Bowen A, Kowalski-Dobson T, Valdez R, Katsamba PS, Wu M, Lee C, Shapiro L, Gordon A, Guo Y, Ho DD, **Liu L**. Recurrent SARS-CoV-2 spike mutations confer growth advantages to select JN.1 sublineages. **Emerging Microbes & Infections** 2024 Sep 11:2402880.",
+        "**Wang Q***, Mellis IA*, Guo Y*, Gherasim C, Valdez R, Gordon A, Ho DD, **Liu L**. Robust SARS-CoV-2-neutralizing antibodies sustained through 6 months post XBB.1.5 mRNA vaccine booster. **Cell Reports Medicine** 2024 Aug 23:101701.",
+        "**Wang Q**, Guo Y, Bowen A, Mellis IA, Valdez R, Gherasim C, Gordon A, **Liu L***, Ho DD*. XBB.1.5 monovalent mRNA vaccine booster elicits robust neutralizing antibodies against XBB subvariants and JN.1. **Cell Host Microbe** 2024 Mar 13;32(3):315-321.e3.",
+        "**Wang Q**, Zhang S, Nguyen HT, Sodroski JG. Inhibition of human immunodeficiency virus (HIV-1) infectivity by expression of poorly or broadly neutralizing antibodies against Env in virus-producing cells. **Journal of Virology** 2024 Feb 20;98(2):e0159423."
+      ]
+    },
+    {
+      "year": 2023,
+      "entries": [
+        "**Wang Q***, Guo Y*, **Liu L***, Schwanz LT, Li Z, Nair MS, Ho J, Zhang RM, Iketani S, Yu J, Huang Y, Qu Y, Valdez R, Lauring AS, Huang Y, Gordon A, Wang HH, **Liu L**, Ho DD. Antigenicity and receptor affinity of SARS-CoV-2 BA.2.86 spike. **Nature** 2023 Dec;624(7992):639-644.",
+        "**Wang Q***, Guo Y*, Tam AR*, Valdez R, Gordon A, **Liu L**, Ho DD. Deep immunological imprinting due to the ancestral spike in the current bivalent COVID-19 vaccine. **Cell Reports Medicine** 2023 Nov 21;4(11):101258.",
+        "**Wang Q**, Bowen A, Ho J, Zhang RM, Valdez R, Stoneman E, Gordon A, **Liu L***, Ho DD*. SARS-CoV-2 neutralising antibodies after a second BA.5 bivalent booster. **Lancet** 2023 Nov 18;402(10415):1827-1828.",
+        "**Wang Q**, Li Z, Guo Y, Mellis IA, Iketani S, Liu M, Yu J, Valdez R, Lauring AS, Sheng Z, Gordon A, **Liu L***, Ho DD*. Evolving antibody evasion and receptor affinity of the Omicron BA.2.75 sublineage of SARS-CoV-2. **iScience** 2023 Oct 18;26(11):108254.",
+        "**Wang Q***, Guo Y*, Zhang RM*, Ho J*, Mohri H, Valdez R, Manthei DM, Gordon A, **Liu L***, Ho DD*. Antibody neutralisation of emerging SARS-CoV-2 subvariants: EG.5.1 and XBC.1.6. **The Lancet Infectious Diseases** 2023 Oct;23(10):e397-e398.",
+        "**Liu L***#, Casner RA#, Guo Y#, **Wang Q**#, Iketani S#, Chan JFW#, Yu J, Dadonaite B, Nair MS, Mohri H, Reddem ER, Yuan S, Poon VK, Chan CC, Yuen KY, Sheng Z, Huang Y, Bloom JD, Shapiro L*, Ho DD*. Antibodies targeting a quaternary site on SARS-CoV-2 spike glycoprotein prevent viral receptor engagement by conformational locking. **Immunity** 2023 Oct 10;56(10):2442-2455.e8.",
+        "Zhang Z*, **Wang Q***, Nguyen HT, Smith AB, Sodroski JG. Alterations in gp120 Glycans or the gp41 Fusion Peptide-Proximal Region Modulate the Stability of the Human Immunodeficiency Virus (HIV-1) Envelope Glycoprotein Pretriggered Conformation. **Journal of Virology** 2023 Sep 28;97(9):e0059223.",
+        "**Wang Q**, Bowen A, Tam AR, Valdez R, Stoneman E, Mellis IA, Gordon A, **Liu L***, Ho DD. SARS-CoV-2 neutralising antibodies after bivalent versus monovalent booster. **Lancet Infect Dis** 2023 May;23(5):527-528.",
+        "**Wang Q**, Yeh AY, Guo Y, Mohri H, Yu J, Ho DD*, **Liu L***. Impaired potency of neutralizing antibodies against cell-cell fusion mediated by SARS-CoV-2. **Emerg Microbes Infect** 2023 May 3:2210237. doi: 10.1080/22221751.2023.2210237.",
+        "**Wang Q**, Bowen A, Valdez R, Gherasim C, Gordon A, **Liu L***, Ho DD*. Antibody Response to Omicron BA.4-BA.5 Bivalent Booster. **N Engl J Med** 2023 Feb 9;388(6):567-569.",
+        "**Wang Q***, Iketani S*, Li Z*, **Liu L***, Guo Y*, Huang Y, Bowen AD, Liu M, Wang M, Yu J, Valdez R, Lauring AS, Sheng Z, Wang HH, Gordon A, **Liu L**, Ho DD. Alarming antibody evasion properties of rising SARS-CoV-2 BQ and XBB subvariants. **Cell** 2023 Jan 19;186(2):279-286.e8.",
+        "Nguyen HT, **Wang Q**, Anang S, Sodroski JG. Characterization of the Human Immunodeficiency Virus (HIV-1) Envelope Glycoprotein Conformational States on Infectious Virus Particles. **Journal of Virology** 2023 Mar 30;97(3):e0185722."
+      ]
+    },
+    {
+      "year": 2022,
+      "entries": [
+        "**Wang Q***, Li Z*, Ho J, Guo Y, Yeh AY, Mohri H, Liu M, Wang M, Yu J, Shah JG, Chang JY, Herbas F, Yin MT, Sobieszczyk ME, Sheng Z, **Liu L***, Ho DD*. Resistance of SARS-CoV-2 omicron subvariant BA.4.6 to antibody neutralisation. **Lancet Infect Dis** 2022 Oct 31:S1473-3099(22)00694-6.",
+        "**Wang Q***, Iketani S*, Li Z*, Guo Y*, Yeh AY, Liu M, Yu J, Sheng Z, Huang Y, **Liu L***, Ho DD*. Antigenic characterization of the SARS-CoV-2 Omicron subvariant BA.2.75. **Cell Host Microbe** 2022 Sep 6:S1931-3128(22)00419-X.",
+        "**Wang Q***, Guo Y*, Iketani S, Nair MS, Li Z, Mohri H, Wang M, Yu J, Bowen AD, Chang JY, Shah JG, Nguyen N, Chen Z, Meyers K, Yin MT, Sobieszczyk ME, Sheng Z, Huang Y, **Liu L*** & Ho DD*. Antibody evasion by SARS-CoV-2 Omicron subvariants BA.2.12.1, BA.4, & BA.5. **Nature** 2022 Aug;608(7923):603-608.",
+        "**Liu L**#, Iketani S, Guo Y, Reddem ER, Casner RG, Nair MS, Yu J, Chan JF, Wang M, Cerutti G, Li Z, Morano NC, Castagna CD, Corredor L, Chu H, Yuan S, Poon VK, Chan CC, Chen Z, Luo Y, Cunningham M, Chavez A, Yin MT, Perlin DS, Tsuji M, Yuen KY, Kwong PD, Sheng Z, Huang Y, Shapiro L & Ho DD. An antibody class with a common CDRH3 motif broadly neutralizes sarbecoviruses. **Science Translational Medicine** 2022;14(646):eabn6859.",
+        "Iketani S#, **Liu L**#, Guo Y#, Liyuan Liu#, Chan JF#, Huang Y, Wang M, Luo Y, Yu J, Chu H, Chik KK, Yuen TT, Yin MT, Sobieszczyk ME, Huang Y, Yuen KY, Wang HH, Sheng Z & Ho DD. Antibody evasion properties of SARS-CoV-2 Omicron sublineages. **Nature** 2022;604(7906):553-6.",
+        "**Wang Q***,#, Anang S*, Iketani S, Guo Y, **Liu L**, Katsamba PS, Shapiro L, Ho DD, Sodroski JG#. Functional properties of the spike glycoprotein of the emerging SARS-CoV-2 variant B.1.1.529. **Cell Reports** 2022 Jun 14;39(11):110924.",
+        "**Liu L**#, Iketani S#, Guo Y#, Chan JF#, Wang M#, Liyuan Liu#, Luo Y, Chu H, Huang Y, Nair MS, Yu J, Chik KK, Yuen TT, Yoon C, To KK, Chen H, Yin MT, Sobieszczyk ME, Huang Y, Wang HH, Sheng Z, Yuen KY & Ho DD. Striking antibody evasion manifested by the Omicron variant of SARS-CoV-2. **Nature** 2022;602(7898):676-81.",
+        "**Wang Q**, Esnault F, Zhao M, Chiu TJ, Smith AB, Nguyen HT, Sodroski JG. Global Increases in Human Immunodeficiency Virus Neutralization Sensitivity Due to Alterations in the Membrane-Proximal External Region of the Envelope Glycoprotein Can be Minimized by Distant State 1-Stabilizing Changes. **Journal of Virology** 2022 Mar 15;e0187821.",
+        "Cerutti G#, Guo Y#, **Liu L**#, Liyuan Liu#, Zhang Z, Luo Y, Huang Y, Wang HH, Ho DD, Sheng Z & Shapiro L. Cryo-EM structure of the SARS-CoV-2 Omicron spike. **Cell Rep** 2022 Mar 1;38(9):110428.",
+        "Nguyen HT, Qualizza A, Anang S, Zhao M, Zou S, Zhou R, **Wang Q**, Zhang S, Deshpande A, Ding H, Chiu TJ, Smith AB 3rd, Kappes JC, Sodroski JG. Functional and Highly Cross-Linkable HIV-1 Envelope Glycoproteins Enriched in a Pretriggered Conformation. **Journal of Virology** 2022 Apr 27;96(8):e0166821."
+      ]
+    },
+    {
+      "year": 2021,
+      "entries": [
+        "**Wang Q***, Nair MS*, Anang S, Zhang S, Nguyen H, Huang Y, **Liu L**, Ho DD, Sodroski JG. Functional differences among the spike glycoproteins of multiple emerging severe acute respiratory syndrome coronavirus 2 variants of concern. **iScience** 2021 Nov 19;24(11):103393.",
+        "Wang P#, Nair MS#, **Liu L**#, Iketani S#, Luo Y, Guo Y, Wang M, Yu J, Zhang B, Kwong PD, Graham BS, Mascola JR, Chang JY, Yin MT, Sobieszczyk M, Kyratsous CA, Shapiro L, Sheng Z, Huang Y, and Ho DD. Antibody Resistance of SARS-CoV-2 Variants B.1.351 and B.1.1.7. **Nature** 2021;593:130-135.",
+        "Iketani S#, **Liu L**#, Nair MS#, Chandrashekar A, Mohri H, Wang M, Barouch DH, Huang Y, and Ho DD. Ad26.COV2.S boosts humoral and cellular immune responses following BNT162b2 vaccination. **Emerging Microbes & Infections** 2021;10(1):2220-2222.",
+        "Nguyen HT, Zhang S, **Wang Q**, Anang S, Wang J, Ding H, Kappes JC, Sodroski J. Spike glycoprotein and host cell determinants of SARS-CoV-2 entry and cytopathic effects. **Journal of Virology** 2021 Mar 1;95(5):e02304-20."
+      ]
+    },
+    {
+      "year": 2020,
+      "entries": [
+        "**Wang Q**, Finzi A and Sodroski JG. The Conformational States of the HIV-1 Envelope Glycoproteins. **Trends in Microbiology** 2020 Aug;28(8):655-667.",
+        "**Liu L***, Wang P*, Nair MS*, Yu J*, Rapp M*, **Wang Q***, Luo Y, Chan JF, Sahi V, Figueroa A, Guo XV, Cerutti G, Bimela J, Gorman J, Zhou T, Chen Z, Yuen KY, Kwong PD, Sodroski JG, Yin MT, Sheng Z, Huang Y, Shapiro L and Ho DD. Potent neutralizing antibodies against multiple epitopes on SARS-CoV-2 spike. **Nature** 2020 Aug;584(7821):450-456.",
+        "**Wang Q**, Ma B, Liang Q, Zhu A, Wang H, Fu L, Han X, Shi X, Xiang Y, Shang H and Zhang L. Stabilized diverse HIV-1 envelope trimers for vaccine design. **Emerging Microbes & Infections** 2020 Dec;9(1):775-786.",
+        "**Wang P**#, **Liu L**#, Nair MS#, Yin MT#, Luo Y, **Wang Q**, Yuan T, Mori K, Solis AG, Yamashita M, Purpura LJ, Laracy JC, Yu J, Sodroski J, Huang Y and Ho DD. SARS-CoV-2 Neutralizing Antibody Responses Are More Robust in Patients with Severe Disease. **Emerging Microbes & Infections** 2020;9(1):2091-2093.",
+        "**Wang Q** and Zhang L. Broadly neutralizing antibodies and vaccine design against HIV-1 infection. **Frontiers of Medicine** 2020 Feb;14(1):30-42."
+      ]
+    },
+    {
+      "year": 2019,
+      "entries": [
+        "**Wang Q**#, **Liu L**#, Ren W, Gettie A, Wang H, Liang Q, Shi X, Montefiori DC, Zhou T and Zhang L. A Single Substitution in gp41 Modulates the Neutralization Profile of SHIV during In Vivo Adaptation. **Cell Rep** 2019;27(9):2593-2607."
+      ]
+    },
+    {
+      "year": 2018,
+      "entries": [
+        "Wu X, Guo J, Niu M, An M, **Liu L**, Wang H, Jin X, Zhang Q, Lam KS, Wu T, Wang H, **Wang Q**, Du Y, Li J, Cheng L, Tang HY, Shang H, Zhang L, Zhou P, Chen Z. Tandem bispecific neutralizing antibody eliminates HIV-1 infection in humanized mice. **Journal of Clinical Investigation** 2018 Jun 1;128(6):2239-2251.",
+        "Wang H, Chen X, Wang D, Yao C, **Wang Q**, Xie J, Shi X, Xiang Y, Liu W, Zhang L. Epitope-focused immunogens against the CD4-binding site of HIV-1 envelope protein induce neutralizing antibodies against auto- and heterologous viruses. **Journal of Biological Chemistry** 2018 Jan 19;293(3):830-846."
+      ]
+    },
+    {
+      "year": 2016,
+      "entries": [
+        "**Liu L**#, Wang W, Matz J, Ye C, Bracq L, Delon J, Kimata JT, Chen Z, Benichou S and Zhou P. The Glycosylphosphatidylinositol-Anchored Variable Region of Llama Heavy Chain-Only Antibody JM4 Efficiently Blocks both Cell-Free and T Cell-T Cell Transmission of Human Immunodeficiency Virus Type 1. **J Virol** 2016;90(23):10642-10659.",
+        "**Liu L**#, Wen M, Zhu Q, Kimata JT and Zhou P. Glycosyl Phosphatidylinositol-Anchored C34 Peptide Derived From Human Immunodeficiency Virus Type 1 Gp41 Is a Potent Entry Inhibitor. **J Neuroimmune Pharmacol** 2016;11(3):601-10.",
+        "Jin S, Ji Y, **Wang Q**, Wang H, Shi X, Han X, Zhou T, Shang H, Zhang L. Spatiotemporal hierarchy in antibody recognition against transmitted HIV-1 envelope glycoprotein during natural infection. **Retrovirology** 2016 Feb 17;13:12."
+      ]
+    },
+    {
+      "year": 2013,
+      "entries": [
+        "**Liu L**#, Wang W, Yang L, Ren H, Kimata JT and Zhou P. Trimeric glycosylphosphatidylinositol-anchored HCDR3 of broadly neutralizing antibody PG16 is a potent HIV-1 entry inhibitor. **J Virol** 2013;87(3):1899-905."
+      ]
+    },
+    {
+      "year": 2012,
+      "entries": [
+        "Zhang M, Sheng X, Zhang H, **Wang Q**, Xu M, Weng Q, Watanabe G, Taya K. Seasonal changes in morphology and immunoreactivity of PDGF-A and its receptor PDGFR-α in the epididymis of wild ground squirrels (Citellus dauricus Brandt). **Journal of Reproduction and Development** 2012;58(3):353-9."
+      ]
+    },
+    {
+      "year": 2011,
+      "entries": [
+        "**Liu L**#, Wen M, Wang W, Wang S, Yang L, Liu Y, Qian M, Zhang L, Shao Y, Kimata JT and Zhou P. Potent and broad anti-HIV-1 activity exhibited by a glycosyl-phosphatidylinositol-anchored peptide derived from the CDR H3 of broadly neutralizing antibody PG16. **J Virol** 2011;85(17):8467-76."
+      ]
+    }
+  ]
+}

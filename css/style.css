@@ -717,6 +717,96 @@ body {
 
 /* ---------- 论文页 ---------- */
 
+/* 两张完整导师卡：王茜在左；手机按同一顺序排列。 */
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 52px;
+}
+.faculty-grid .faculty-profile {
+  --glow-rgb: 74, 137, 213;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-width: 0;
+  margin: 0;
+  padding: 28px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 750ms ease, border-color 750ms ease, box-shadow 750ms ease;
+}
+.faculty-grid .faculty-pink { --glow-rgb: 223, 101, 155; }
+.faculty-grid .faculty-profile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 25%, rgba(255,255,255,.7) 48%, transparent 70%);
+  transform: translateX(-130%);
+}
+.faculty-grid .faculty-profile:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 5px;
+}
+.faculty-grid .faculty-profile:focus-within {
+  background-color: rgba(var(--glow-rgb), .08);
+  border-color: rgba(var(--glow-rgb), .5);
+}
+@media (hover: hover) {
+  .faculty-grid .faculty-profile:hover {
+    background-color: rgba(var(--glow-rgb), .08);
+    border-color: rgba(var(--glow-rgb), .5);
+    box-shadow: 0 18px 46px -22px rgba(var(--glow-rgb), .5);
+  }
+  .faculty-grid .faculty-profile:hover::after { animation: facultyLightSweep 1200ms ease-out; }
+}
+@keyframes facultyLightSweep { to { transform: translateX(130%); } }
+.faculty-grid .faculty-head { gap: 22px; align-items: center; }
+.faculty-grid .faculty-photo { flex: 0 0 96px; border-radius: 10px; }
+.faculty-role { margin: 0 0 8px; color: var(--color-text-muted); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+.faculty-grid .faculty-name { font-size: 28px; margin: 0 0 4px; }
+.faculty-grid .faculty-en { display: block; margin: 0; font-size: 14px; }
+.faculty-affiliations { list-style: none; padding: 0; margin: 24px 0 18px; font-size: 13px; line-height: 1.9; color: #555; }
+.faculty-grid .faculty-facts { grid-template-columns: 1fr; gap: 6px; font-size: 13px; }
+.faculty-summary { margin: 18px 0 0; font-size: 14px; color: #555; }
+.faculty-grid .faculty-body { display: block; padding-top: 0; margin-top: 20px; }
+.faculty-block h4 { font-family: var(--font-serif); color: var(--color-accent); font-size: 15px; margin: 20px 0 9px; }
+.faculty-grid .faculty-body li { font-size: 13px; line-height: 1.95; margin-bottom: 3px; }
+.faculty-publications { padding-top: 24px; margin: auto 0 0; font-size: 13px; }
+.logo-lettering {
+  position: absolute;
+  z-index: 2;
+  left: 5%;
+  top: 14%;
+  width: 90%;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.18;
+  color: #293d73;
+  user-select: none;
+  text-shadow: 0 2px 10px rgba(41, 61, 115, .12);
+}
+.logo-word { display: inline-block; white-space: nowrap; }
+.logo-word + .logo-word { margin-left: .25em; }
+.logo-word:last-child { display: block; margin-left: 0; }
+.logo-letter { display: inline-block; transition: color 1100ms ease; }
+
+@media (max-width: 768px) {
+  .faculty-grid { grid-template-columns: 1fr; gap: 20px; }
+  .faculty-grid .faculty-head { flex-direction: row; }
+  .faculty-grid .faculty-photo { width: 96px; }
+  .faculty-grid .faculty-profile { padding: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faculty-grid .faculty-profile, .logo-letter { transition: none; }
+  .faculty-grid .faculty-profile::after { animation: none !important; }
+}
+
 .pub-page {
   padding: calc(var(--header-height) + 48px) 0 96px;
 }
@@ -830,7 +920,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero-text { animation: none; }
+  .hero-text, .hero-right { animation: none; }
   .hero-scroll-arrow { animation: none; }
 }
 
@@ -851,6 +941,7 @@ body {
 
   .site-nav {
     position: absolute;
+    margin-left: 0;
     top: var(--header-height);
     left: 0;
     right: 0;
