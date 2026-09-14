@@ -284,7 +284,7 @@
     var lettering = document.getElementById('logoLettering');
     if (!lettering || reduced) return;
     var letters = Array.prototype.slice.call(lettering.querySelectorAll('.logo-letter'));
-    var colors = ['#293d73', '#654282', '#a33e71', '#326b60', '#35678b'];
+    var colors = ['#e63946', '#ff7b00', '#f4c20d', '#2a9d3f', '#0089ff', '#8437e8', '#d81b8c'];
     var inView = true;
     var lastWave = 0;
     if ('IntersectionObserver' in window) {
@@ -301,8 +301,8 @@
         letter.getAnimations().forEach(function (animation) { animation.cancel(); });
         letter.animate([
           { transform: 'translate(0,0) rotate(0)' },
-          { transform: 'translate(-1px,-3px) rotate(-6deg)', offset: 0.25 },
-          { transform: 'translate(1px,1px) rotate(5deg)', offset: 0.55 },
+          { transform: 'translate(-4px,-8px) rotate(-18deg)', offset: 0.25 },
+          { transform: 'translate(4px,3px) rotate(14deg)', offset: 0.55 },
           { transform: 'translate(0,0) rotate(0)' }
         ], { duration: 440, easing: 'ease-out' });
         if (performance.now() - lastWave < 350) return;
@@ -312,7 +312,7 @@
           neighbor.getAnimations().forEach(function (animation) { animation.cancel(); });
           neighbor.animate([
             { transform: 'translateY(0)' },
-            { transform: 'translateY(-2px)', offset: 0.4 },
+            { transform: 'translateY(-6px)', offset: 0.4 },
             { transform: 'translateY(0)' }
           ], { duration: 650, delay: Math.abs(i - index) * 28, easing: 'ease-in-out' });
         });
