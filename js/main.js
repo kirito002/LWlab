@@ -286,7 +286,6 @@
     var letters = Array.prototype.slice.call(lettering.querySelectorAll('.logo-letter'));
     var colors = ['#e63946', '#ff7b00', '#f4c20d', '#2a9d3f', '#0089ff', '#8437e8', '#d81b8c'];
     var inView = true;
-    var lastWave = 0;
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
         inView = entries[0].isIntersecting;
@@ -295,8 +294,10 @@
     function recolor(letter) {
       letter.style.color = colors[Math.floor(Math.random() * colors.length)];
     }
-    letters.forEach(function (letter, index) {
+    // 只动鼠标所在的字母：无邻居水纹、无节流
+    letters.forEach(function (letter) {
       letter.addEventListener('pointerenter', function () {
+        if (!inView) return;
         recolor(letter);
         letter.getAnimations().forEach(function (animation) { animation.cancel(); });
         letter.animate([
@@ -305,17 +306,6 @@
           { transform: 'translate(4px,3px) rotate(14deg)', offset: 0.55 },
           { transform: 'translate(0,0) rotate(0)' }
         ], { duration: 440, easing: 'ease-out' });
-        if (performance.now() - lastWave < 350) return;
-        lastWave = performance.now();
-        letters.forEach(function (neighbor, i) {
-          if (i === index) return;
-          neighbor.getAnimations().forEach(function (animation) { animation.cancel(); });
-          neighbor.animate([
-            { transform: 'translateY(0)' },
-            { transform: 'translateY(-6px)', offset: 0.4 },
-            { transform: 'translateY(0)' }
-          ], { duration: 650, delay: Math.abs(i - index) * 28, easing: 'ease-in-out' });
-        });
       });
     });
     setInterval(function () {
