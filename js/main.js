@@ -219,6 +219,8 @@
       icons.forEach(function (icon, i) {
         icon.style.left = chosen[i].x + 'px';
         icon.style.top = chosen[i].y + 'px';
+        icon._cx = chosen[i].x;   // 缓存画布坐标，供每帧揭示判断使用（避免布局读取）
+        icon._cy = chosen[i].y;
       });
     }
 
@@ -269,17 +271,17 @@
         ctx.fillStyle = p.c;
         ctx.fillRect(p.x - (draw - p.s) / 2, p.y - (draw - p.s) / 2, draw, draw);
       }
+
+      updateIcons();
     }
 
     var icons = Array.prototype.slice.call(document.querySelectorAll('.hero-icon'));
     function updateIcons() {
       if (!icons.length) return;
       for (var i = 0; i < icons.length; i++) {
-        var r = icons[i].getBoundingClientRect();
-        var cx = r.left + r.width / 2 - canvas.getBoundingClientRect().left;
-        var cy = r.top + r.height / 2 - canvas.getBoundingClientRect().top;
-        var near = Math.hypot(mouse.x - cx, mouse.y - cy) < 85;
-        icons[i].classList.toggle('visible', near);
+        var ddx = mouse.x - icons[i]._cx;
+        var ddy = mouse.y - icons[i]._cy;
+        icons[i].classList.toggle('visible', ddx * ddx + ddy * ddy < 85 * 85);
       }
     }
 
@@ -287,7 +289,6 @@
       var rect = canvas.getBoundingClientRect();
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
-      updateIcons();
     });
 
     var replaceTimer = null;
