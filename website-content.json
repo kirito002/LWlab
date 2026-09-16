@@ -8,7 +8,7 @@
   },
   "about": [
     "无限奇迹实验室（Limitless Wonder Laboratory，简称 LW Lab）依托武汉大学生命科学学院与泰康生命医学中心，由王茜教授与刘立鸿教授共同领导。实验室围绕病毒感染与免疫应答开展研究，秉持\"以好奇驱动探索、以严谨对待研究\"的理念，鼓励成员在扎实的理论基础之上开展有原创性的工作。",
-    "实验室现由两位导师、一位科研工作人员和十八名硕博研究生组成，研究方向涵盖病毒进化与免疫、病毒与宿主相互作用、病原诊断、抗体与药物筛选、疫苗设计与基因治疗等（详见\"研究\"部分）。我们重视系统训练与开放讨论，组内定期组织文献研读与学术交流，支持成员参与学术会议并发表高水平成果。"
+    "实验室现由两位导师、一位科研工作人员、十八名硕博研究生和四名本科生组成，研究方向涵盖病毒进化与免疫、病毒与宿主相互作用、病原诊断、抗体与药物筛选、疫苗设计与基因治疗等（详见\"研究\"部分）。我们重视系统训练与开放讨论，组内定期组织文献研读与学术交流，支持成员参与学术会议并发表高水平成果。"
   ],
   "group_photos": [
     {
@@ -254,9 +254,43 @@
           "photo": "assets/photos/xinhao-zheng.jpg"
         }
       ]
+    },
+    {
+      "title": "本科生 Undergraduates",
+      "role": "Undergraduate",
+      "members": [
+        {
+          "name": "崔艺菲",
+          "english": "Yifei Cui",
+          "photo": "assets/photos/cui-yifei.jpg"
+        },
+        {
+          "name": "李怡繁",
+          "english": "Yifan Li",
+          "photo": "assets/photos/li-yifan.jpg"
+        },
+        {
+          "name": "邢润金",
+          "english": "Runjin Xing",
+          "photo": "assets/photos/runjin-xing.jpg"
+        },
+        {
+          "name": "杨博舒",
+          "english": "Boshu Yang",
+          "photo": "assets/photos/boshu-yang.jpg"
+        }
+      ]
     }
   ],
   "news": [
+    {
+      "date": "2026-09",
+      "title": "恭喜崔艺菲、李怡繁获第五届合成生物学创新赛银奖。",
+      "detail": "实验室本科生崔艺菲、李怡繁参加第五届合成生物学创新赛，荣获银奖。",
+      "image": "assets/other/reward.jpg",
+      "image_alt": "第五届合成生物学创新赛银奖证书",
+      "image_caption": "获奖证书"
+    },
     {
       "date": "2026-09",
       "title": "实验室网站正式上线。",

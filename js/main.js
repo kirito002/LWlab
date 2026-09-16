@@ -314,4 +314,35 @@
     }, 850);
   })();
 
+  /* ================= 新闻配图灯箱：点击缩略图放大，点任意处或 Esc 关闭 ================= */
+
+  (function () {
+    var lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+    var img = lightbox.querySelector('.lightbox-img');
+
+    function close() {
+      lightbox.hidden = true;
+      img.src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('click', function (e) {
+      var thumb = e.target.closest ? e.target.closest('[data-lightbox-src]') : null;
+      if (thumb) {
+        img.src = thumb.getAttribute('data-lightbox-src');
+        var inner = thumb.querySelector('img');
+        img.alt = inner ? inner.alt : '';
+        lightbox.hidden = false;
+        document.body.style.overflow = 'hidden';
+        return;
+      }
+      if (!lightbox.hidden) close();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lightbox.hidden) close();
+    });
+  })();
+
 })();

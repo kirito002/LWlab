@@ -100,7 +100,17 @@ def render(data, home, pubs):
             if not n['url'].startswith('https://'):
                 raise ValueError('新闻链接必须使用 https://')
             detail += f' <a class="link" href="{esc(n["url"])}" target="_blank" rel="noopener">{esc(n["link_label"])}</a>'
-        news += f'<li class="news-item"><time class="news-date" datetime="{esc(n["date"])}">{esc(n["date"])}</time><div class="news-text"><p class="news-title">{rich(n["title"])}</p>' + (f'<p class="news-detail">{detail}</p>' if detail else '') + '</div></li>'
+        figure = ''
+        if n.get('image'):
+            caption = n.get('image_caption', '')
+            alt = n.get('image_alt') or caption or '新闻配图'
+            figure = ('<figure class="news-figure"><button class="news-thumb" type="button" '
+                      f'data-lightbox-src="{esc(n["image"])}" aria-label="放大查看配图">'
+                      f'<img src="{esc(n["image"])}" alt="{esc(alt)}" loading="lazy"></button>'
+                      + (f'<figcaption>{esc(caption)}</figcaption>' if caption else '') + '</figure>')
+        news += (f'<li class="news-item"><time class="news-date" datetime="{esc(n["date"])}">{esc(n["date"])}</time>'
+                 f'<div class="news-text"><p class="news-title">{rich(n["title"])}</p>'
+                 + (f'<p class="news-detail">{detail}</p>' if detail else '') + figure + '</div></li>')
     news += '</ul><p class="news-more"><a class="link" href="publication.html">查看实验室全部发表论文 →</a></p>'
     join = '<div class="section-body">' + paragraphs(data['join']['paragraphs']) + f'<p>联系邮箱：<a class="link" href="mailto:{esc(data["join"]["email"])}">{esc(data["join"]["email"])}</a><br>实验室位置：{esc(data["join"]["address"])}</p></div>'
     sections = {
@@ -128,7 +138,9 @@ def main():
     pages = render(data, *original)
     # 根据内容、脚本、样式和图片自动生成缓存版本，无需手动维护日期。
     digest = hashlib.sha256(SOURCE.read_bytes())
-    assets = [ROOT / 'css/style.css', ROOT / 'js/main.js'] + sorted((ROOT / 'assets/photos').rglob('*'))
+    assets = ([ROOT / 'css/style.css', ROOT / 'js/main.js']
+               + sorted((ROOT / 'assets/photos').rglob('*'))
+               + sorted((ROOT / 'assets/other').rglob('*')))
     for p in assets:
         if p.is_file() and p.suffix.lower() in {'.css', '.js', '.jpg', '.jpeg', '.png', '.svg'}:
             digest.update(p.relative_to(ROOT).as_posix().encode())
