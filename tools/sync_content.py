@@ -140,7 +140,8 @@ def main():
     digest = hashlib.sha256(SOURCE.read_bytes())
     assets = ([ROOT / 'css/style.css', ROOT / 'js/main.js']
                + sorted((ROOT / 'assets/photos').rglob('*'))
-               + sorted((ROOT / 'assets/other').rglob('*')))
+               + sorted((ROOT / 'assets/other').rglob('*'))
+               + sorted((ROOT / 'assets/icons').rglob('*')))
     for p in assets:
         if p.is_file() and p.suffix.lower() in {'.css', '.js', '.jpg', '.jpeg', '.png', '.svg'}:
             digest.update(p.relative_to(ROOT).as_posix().encode())

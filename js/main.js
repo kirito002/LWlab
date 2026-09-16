@@ -113,7 +113,7 @@
     var particles = [];
     var W = 0, H = 0, dpr = 1;
     var mouse = { x: -9999, y: -9999 };
-    var RADIUS = 10, R2 = RADIUS * RADIUS, POWER = 6, SPRING = 0.02, FRICTION = 0.9;
+    var RADIUS = 85, R2 = RADIUS * RADIUS, POWER = 1.6, TURB = 0.9, SPRING = 0.02, FRICTION = 0.9;
     var raf = null;
     var visible = true;
     var t = 0;
@@ -214,13 +214,27 @@
           p.vy += dy / d * f;
         }
 
-        // 弹簧拉回平衡点（平衡点带缓慢浮动，保持呼吸感）
-        var tx = p.hx + Math.sin(t * 0.8 + p.ph) * 1.5;
-        var ty = p.hy + Math.cos(t * 0.6 + p.ph) * 1.5;
-        p.vx += (tx - p.x) * SPRING;
-        p.vy += (ty - p.y) * SPRING;
-        p.vx *= FRICTION;
-        p.vy *= FRICTION;
+        // 平衡点带缓慢浮动，保持呼吸感
+        var tx = p.hx + Math.sin(t * 0.8 + p.ph) * 2.6;
+        var ty = p.hy + Math.cos(t * 0.6 + p.ph) * 2.6;
+
+        if (d2 < R2) {
+          // 鼠标范围内：不整团推走，而是柔和外推 + 随机漫游 + 弹簧减弱，
+          // 让粒子在光标周边一个区域内自由扩散
+          var d = Math.sqrt(d2) || 1;
+          var f = (RADIUS - d) / RADIUS * POWER;
+          p.vx += dx / d * f + (Math.random() - 0.5) * TURB;
+          p.vy += dy / d * f + (Math.random() - 0.5) * TURB;
+          p.vx += (tx - p.x) * SPRING * 0.22;
+          p.vy += (ty - p.y) * SPRING * 0.22;
+          p.vx *= 0.94;
+          p.vy *= 0.94;
+        } else {
+          p.vx += (tx - p.x) * SPRING;
+          p.vy += (ty - p.y) * SPRING;
+          p.vx *= FRICTION;
+          p.vy *= FRICTION;
+        }
         p.x += p.vx;
         p.y += p.vy;
 
@@ -229,15 +243,29 @@
       }
     }
 
+    var icons = Array.prototype.slice.call(document.querySelectorAll('.hero-icon'));
+    function updateIcons() {
+      if (!icons.length) return;
+      for (var i = 0; i < icons.length; i++) {
+        var r = icons[i].getBoundingClientRect();
+        var cx = r.left + r.width / 2 - canvas.getBoundingClientRect().left;
+        var cy = r.top + r.height / 2 - canvas.getBoundingClientRect().top;
+        var near = Math.hypot(mouse.x - cx, mouse.y - cy) < 110;
+        icons[i].classList.toggle('visible', near);
+      }
+    }
+
     canvas.addEventListener('pointermove', function (e) {
       var rect = canvas.getBoundingClientRect();
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
+      updateIcons();
     });
 
     canvas.addEventListener('pointerleave', function () {
       mouse.x = -9999;
       mouse.y = -9999;
+      icons.forEach(function (icon) { icon.classList.remove('visible'); });
     });
 
     var resizeTimer;
