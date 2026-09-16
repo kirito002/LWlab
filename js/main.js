@@ -113,7 +113,10 @@
     var particles = [];
     var W = 0, H = 0, dpr = 1;
     var mouse = { x: -9999, y: -9999 };
-    var RADIUS = 85, R2 = RADIUS * RADIUS, POWER = 1.6, TURB = 0.9, SPRING = 0.02, FRICTION = 0.9;
+    var RADIUS = 85, R2 = RADIUS * RADIUS, SPRING = 0.02, FRICTION = 0.9;
+    var swirlDir = Math.random() < 0.5 ? -1 : 1;  // 每次加载随机涡流方向
+    var vSamples = [];                             // V 形上的采样点（供图标随机落位）
+    var logoBox = null;
     var raf = null;
     var visible = true;
     var t = 0;
@@ -186,7 +189,37 @@
           });
         }
       }
+      // 记录徽标区域并抽样 V 形上的点，供图标随机落位（保证不超出 V）
+      logoBox = { ox: ox, oy: oy, w: w, h: h };
+      vSamples = [];
+      for (var si = 0; si < particles.length; si += 6) {
+        vSamples.push({ x: particles[si].hx, y: particles[si].hy });
+      }
+      placeIcons();
       if (reducedMotion) frame();
+    }
+
+    // 图标随机落到 V 形内部的采样点上，彼此保持间距
+    function placeIcons() {
+      if (!icons.length || !vSamples.length || !logoBox) return;
+      var chosen = [];
+      var minDist = Math.max(55, logoBox.w * 0.16);
+      var guard = 0;
+      while (chosen.length < icons.length && guard++ < 300) {
+        var cand = vSamples[(Math.random() * vSamples.length) | 0];
+        var ok = true;
+        for (var ci = 0; ci < chosen.length; ci++) {
+          if (Math.hypot(cand.x - chosen[ci].x, cand.y - chosen[ci].y) < minDist) { ok = false; break; }
+        }
+        if (ok) chosen.push(cand);
+      }
+      while (chosen.length < icons.length) {
+        chosen.push(vSamples[(Math.random() * vSamples.length) | 0]);
+      }
+      icons.forEach(function (icon, i) {
+        icon.style.left = chosen[i].x + 'px';
+        icon.style.top = chosen[i].y + 'px';
+      });
     }
 
     function frame() {
@@ -203,33 +236,30 @@
           continue;
         }
 
-        // 鼠标斥力：靠近则被推开
         var dx = p.x - mouse.x;
         var dy = p.y - mouse.y;
         var d2 = dx * dx + dy * dy;
-        if (d2 < R2) {
-          var d = Math.sqrt(d2) || 1;
-          var f = (RADIUS - d) / RADIUS * POWER;
-          p.vx += dx / d * f;
-          p.vy += dy / d * f;
-        }
 
         // 平衡点带缓慢浮动，保持呼吸感
         var tx = p.hx + Math.sin(t * 0.8 + p.ph) * 2.6;
         var ty = p.hy + Math.cos(t * 0.6 + p.ph) * 2.6;
 
         if (d2 < R2) {
-          // 鼠标范围内：不整团推走，而是柔和外推 + 随机漫游 + 弹簧减弱，
-          // 让粒子在光标周边一个区域内自由扩散
-          var d = Math.sqrt(d2) || 1;
-          var f = (RADIUS - d) / RADIUS * POWER;
-          p.vx += dx / d * f + (Math.random() - 0.5) * TURB;
-          p.vy += dy / d * f + (Math.random() - 0.5) * TURB;
-          p.vx += (tx - p.x) * SPRING * 0.22;
-          p.vy += (ty - p.y) * SPRING * 0.22;
-          p.vx *= 0.94;
-          p.vy *= 0.94;
+          // 鼠标范围内：确定性涡流轨道。目标点绕光标旋转，线速度内慢外快；
+          // 目标恒在圆环内，缓动跟随，粒子永不甩出、不堆积边界
+          var L = Math.hypot(p.hx - mouse.x, p.hy - mouse.y) || 1;
+          var nd = Math.min(1, L / RADIUS);
+          var ring = RADIUS * (0.35 + 0.6 * nd);
+          var base = Math.atan2(p.hy - mouse.y, p.hx - mouse.x);
+          p.orb = (p.orb || 0) + 0.004 + nd * 0.05;
+          var gx = mouse.x + Math.cos(base + swirlDir * p.orb) * ring;
+          var gy = mouse.y + Math.sin(base + swirlDir * p.orb) * ring;
+          p.vx = 0;
+          p.vy = 0;
+          p.x += (gx - p.x) * 0.085;
+          p.y += (gy - p.y) * 0.085;
         } else {
+          p.orb = 0;
           p.vx += (tx - p.x) * SPRING;
           p.vy += (ty - p.y) * SPRING;
           p.vx *= FRICTION;
@@ -262,10 +292,14 @@
       updateIcons();
     });
 
+    var replaceTimer = null;
     canvas.addEventListener('pointerleave', function () {
       mouse.x = -9999;
       mouse.y = -9999;
       icons.forEach(function (icon) { icon.classList.remove('visible'); });
+      // 等淡出结束后随机换位，下次"拨开"出现在新的地方
+      clearTimeout(replaceTimer);
+      replaceTimer = setTimeout(placeIcons, 1100);
     });
 
     var resizeTimer;
