@@ -114,7 +114,7 @@
     var W = 0, H = 0, dpr = 1;
     var mouse = { x: -9999, y: -9999 };
     // 交互参数与 deepseek.com/harness 点阵物理一致（30fps 步长标定）
-    var RADIUS = 140, R2 = RADIUS * RADIUS, SPRING = 0.05, FRICTION = 0.85, PUSH = 3;
+    var RADIUS = 70, R2 = RADIUS * RADIUS, SPRING = 0.05, FRICTION = 0.85, PUSH = 3;
     var vSamples = [];                             // V 形上的采样点（供图标随机落位）
     var logoBox = null;
     var raf = null;
@@ -226,11 +226,13 @@
     function frame(now) {
       if (!reducedMotion) raf = requestAnimationFrame(frame);
       if (!visible || document.hidden) return;
-      if (now - lastStep < 33) return;              // 30fps 物理步长（deepseek 同款）
-      lastStep = now - (now - lastStep) % 33;
-      t += 0.033;
+      // 帧率无关时间步长：渲染全帧率丝滑，物理以 30fps 为时间单位缩放，手感不变
+      var dt = lastStep ? Math.min((now - lastStep) / 33.3, 3) : 1;
+      lastStep = now;
+      t += 0.033 * dt;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, W, H);
+      var fr = Math.pow(FRICTION, dt);
       for (var i = 0; i < particles.length; i++) {
         var p = particles[i];
         if (reducedMotion) {
@@ -247,19 +249,19 @@
         var tx = p.hx + Math.sin(t * 0.8 + p.ph) * 2.6;
         var ty = p.hy + Math.cos(t * 0.6 + p.ph) * 2.6;
 
-        // deepseek harness 同款手感：柔和斥力冲量 + 弹簧回家 + 强阻尼
+        // deepseek harness 同款手感（帧率无关）：柔和斥力 + 弹簧回家 + 强阻尼
         if (d2 < R2 && d2 > 0.01) {
           var d = Math.sqrt(d2);
-          var push = (1 - d / RADIUS) * PUSH;
+          var push = (1 - d / RADIUS) * PUSH * dt;
           p.vx += dx / d * push;
           p.vy += dy / d * push;
         }
-        p.vx += (tx - p.x) * SPRING;
-        p.vy += (ty - p.y) * SPRING;
-        p.vx *= FRICTION;
-        p.vy *= FRICTION;
-        p.x += p.vx;
-        p.y += p.vy;
+        p.vx += (tx - p.x) * SPRING * dt;
+        p.vy += (ty - p.y) * SPRING * dt;
+        p.vx *= fr;
+        p.vy *= fr;
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
 
         // 靠近光标的粒子轻微放大（deepseek 细节）
         var near = d2 < R2 ? 1 - Math.sqrt(d2) / RADIUS : 0;
@@ -276,7 +278,7 @@
         var r = icons[i].getBoundingClientRect();
         var cx = r.left + r.width / 2 - canvas.getBoundingClientRect().left;
         var cy = r.top + r.height / 2 - canvas.getBoundingClientRect().top;
-        var near = Math.hypot(mouse.x - cx, mouse.y - cy) < 110;
+        var near = Math.hypot(mouse.x - cx, mouse.y - cy) < 85;
         icons[i].classList.toggle('visible', near);
       }
     }
