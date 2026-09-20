@@ -114,7 +114,7 @@
     var W = 0, H = 0, dpr = 1;
     var mouse = { x: -9999, y: -9999 };
     // 交互参数与 deepseek.com/harness 点阵物理一致（30fps 步长标定）
-    var RADIUS = 70, R2 = RADIUS * RADIUS, SPRING = 0.05, FRICTION = 0.85, PUSH = 3;
+    var RADIUS = 30, R2 = RADIUS * RADIUS, SPRING = 0.05, FRICTION = 0.85, PUSH = 14;
     var vSamples = [];                             // V 形上的采样点（供图标随机落位）
     var logoBox = null;
     var raf = null;
