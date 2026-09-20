@@ -114,7 +114,7 @@
     var W = 0, H = 0, dpr = 1;
     var mouse = { x: -9999, y: -9999 };
     // 交互参数与 deepseek.com/harness 点阵物理一致（30fps 步长标定）
-    var RADIUS = 70, R2 = RADIUS * RADIUS, SPRING = 0.05, FRICTION = 0.85;
+    var RADIUS = 70, R2 = RADIUS * RADIUS, SPRING = 0.05, FRICTION = 0.85, PUSH = 3;
     var vSamples = [];                             // V 形上的采样点（供图标随机落位）
     var logoBox = null;
     var raf = null;
@@ -235,7 +235,6 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, W, H);
       var fr = Math.pow(FRICTION, dt);
-      var ease = 1 - Math.pow(0.55, dt);   // 让位响应速率：每 33ms 走完 45%
       for (var i = 0; i < particles.length; i++) {
         var p = particles[i];
         if (reducedMotion) {
@@ -252,26 +251,19 @@
         var tx = p.hx + Math.sin(t * 0.8 + p.ph) * 2.6;
         var ty = p.hy + Math.cos(t * 0.6 + p.ph) * 2.6;
 
-        // 零延迟响应：光标进入即沿径向把粒子快速缓动到让位环（滑过直接散开）
+        // deepseek harness 同款手感（帧率无关）：柔和斥力 + 弹簧回家 + 强阻尼
         if (d2 < R2 && d2 > 0.01) {
           var d = Math.sqrt(d2);
-          var nd = d / RADIUS;
-          var ring = RADIUS * (0.45 + 0.5 * nd);
-          var gx = mouse.x + dx / d * ring;
-          var gy = mouse.y + dy / d * ring;
-          p.x += (gx - p.x) * ease;
-          p.y += (gy - p.y) * ease;
-          p.vx = 0;
-          p.vy = 0;
-        } else {
-          // 光标不在：弹簧缓缓送回家（带呼吸浮动）
-          p.vx += (tx - p.x) * SPRING * dt;
-          p.vy += (ty - p.y) * SPRING * dt;
-          p.vx *= fr;
-          p.vy *= fr;
-          p.x += p.vx * dt;
-          p.y += p.vy * dt;
+          var push = (1 - d / RADIUS) * PUSH * dt;
+          p.vx += dx / d * push;
+          p.vy += dy / d * push;
         }
+        p.vx += (tx - p.x) * SPRING * dt;
+        p.vy += (ty - p.y) * SPRING * dt;
+        p.vx *= fr;
+        p.vy *= fr;
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
 
         // 靠近光标的粒子轻微放大（deepseek 细节）
         var near = d2 < R2 ? 1 - Math.sqrt(d2) / RADIUS : 0;
