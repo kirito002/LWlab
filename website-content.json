@@ -158,34 +158,14 @@
       "role": "PhD",
       "members": [
         {
-          "name": "陈翀",
-          "english": "Chong Chen",
-          "photo": "assets/photos/chong-chen.jpg"
+          "name": "石兰芳",
+          "english": "Lanfang Shi",
+          "photo": "assets/photos/shilan-fang.jpg"
         },
         {
-          "name": "朱天昊",
-          "english": "Tianhao Zhu",
-          "photo": "assets/photos/tianhao-zhu.jpg"
-        },
-        {
-          "name": "王创",
-          "english": "Chuang Wang",
-          "photo": "assets/photos/chuang-wang.jpg"
-        },
-        {
-          "name": "董豹",
-          "english": "Bao Dong",
-          "photo": "assets/photos/bao-dong.jpg"
-        },
-        {
-          "name": "代欣",
-          "english": "Xin Dai",
-          "photo": "assets/photos/xin-dai.jpg"
-        },
-        {
-          "name": "张舒艳",
-          "english": "Shuyan Zhang",
-          "photo": "assets/photos/shuyan-zhang.jpg"
+          "name": "韩娟",
+          "english": "Juan Han",
+          "photo": "assets/photos/juan-han.jpg"
         },
         {
           "name": "刘纯海",
@@ -198,14 +178,34 @@
           "photo": "assets/photos/xuchen-xia.jpg"
         },
         {
-          "name": "石兰芳",
-          "english": "Lanfang Shi",
-          "photo": "assets/photos/shilan-fang.jpg"
+          "name": "朱天昊",
+          "english": "Tianhao Zhu",
+          "photo": "assets/photos/tianhao-zhu.jpg"
         },
         {
-          "name": "韩娟",
-          "english": "Juan Han",
-          "photo": "assets/photos/juan-han.jpg"
+          "name": "代欣",
+          "english": "Xin Dai",
+          "photo": "assets/photos/xin-dai.jpg"
+        },
+        {
+          "name": "陈翀",
+          "english": "Chong Chen",
+          "photo": "assets/photos/chong-chen.jpg"
+        },
+        {
+          "name": "王创",
+          "english": "Chuang Wang",
+          "photo": "assets/photos/chuang-wang.jpg"
+        },
+        {
+          "name": "董豹",
+          "english": "Bao Dong",
+          "photo": "assets/photos/bao-dong.jpg"
+        },
+        {
+          "name": "张舒艳",
+          "english": "Shuyan Zhang",
+          "photo": "assets/photos/shuyan-zhang.jpg"
         }
       ]
     },
@@ -213,6 +213,26 @@
       "title": "硕士研究生 Master Students",
       "role": "Master",
       "members": [
+        {
+          "name": "郑鑫浩",
+          "english": "Xinhao Zheng",
+          "photo": "assets/photos/xinhao-zheng.jpg"
+        },
+        {
+          "name": "李彤彤",
+          "english": "Tongtong Li",
+          "photo": "assets/photos/tongtong-li.jpg"
+        },
+        {
+          "name": "李璟婕",
+          "english": "Jingjie Li",
+          "photo": "assets/photos/jingjie-li.jpg"
+        },
+        {
+          "name": "陈由洲",
+          "english": "Youzhou Chen",
+          "photo": "assets/photos/youzhou-chen.jpg"
+        },
         {
           "name": "张玙璠",
           "english": "Yufan Zhang",
@@ -232,26 +252,6 @@
           "name": "王紫璇",
           "english": "Zixuan Wang",
           "photo": "assets/photos/zixuan-wang.jpg"
-        },
-        {
-          "name": "李彤彤",
-          "english": "Tongtong Li",
-          "photo": "assets/photos/tongtong-li.jpg"
-        },
-        {
-          "name": "李璟婕",
-          "english": "Jingjie Li",
-          "photo": "assets/photos/jingjie-li.jpg"
-        },
-        {
-          "name": "陈由洲",
-          "english": "Youzhou Chen",
-          "photo": "assets/photos/youzhou-chen.jpg"
-        },
-        {
-          "name": "郑鑫浩",
-          "english": "Xinhao Zheng",
-          "photo": "assets/photos/xinhao-zheng.jpg"
         }
       ]
     },
